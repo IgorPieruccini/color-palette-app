@@ -1,6 +1,5 @@
-# flutter_color_pallete
-
-A new Flutter project.
+# Collor Pallete App
+Within this project i want to learn and understand how ephemoral and app state works in flutter along with some other basic feature like ui and router for example.
 
 ## Getting Started
 
