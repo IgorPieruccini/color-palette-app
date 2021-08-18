@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_color_pallete/screens/catalog.dart';
 import 'package:flutter_color_pallete/screens/login.dart';
 
 void main() {
@@ -13,8 +14,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      initialRoute: "/",
       routes: {
-        "/": (context) => Login()
+        "/": (context) => Login(),
+        "/catalog": (context) => Catalog(),
       }
     );
   }
