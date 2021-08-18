@@ -29,7 +29,8 @@ class Login extends StatelessWidget {
                         obscureText: true),
                     const SizedBox(height: 24),
                     ElevatedButton(
-                        onPressed: ()=> onPressed(context), child: Text("Let's go"))
+                        onPressed: () => onPressed(context),
+                        child: Text("Let's go"))
                   ],
                 ))));
   }
