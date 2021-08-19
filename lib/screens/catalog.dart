@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_color_pallete/model/catalog.dart';
 
 class Catalog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final valueThatNeverChanges = context.select((CatalogModel model) => model);
+    print(valueThatNeverChanges.generateRandomColor);
+
     return Scaffold(
         body: CustomScrollView(
       slivers: [
         AppBar(),
-        const SliverToBoxAdapter(
-          child: SizedBox(height: 12)),
-          SliverList(delegate: SliverChildBuilderDelegate(
-            (context, index) => _ColorItem(index)
-          ))
+        const SliverToBoxAdapter(child: SizedBox(height: 12)),
+        SliverList(
+            delegate: SliverChildBuilderDelegate(
+                (context, index) => _ColorItem(index)))
       ],
     ));
   }
@@ -49,11 +53,11 @@ class _ColorItem extends StatelessWidget {
         child: Row(
           children: [
             AspectRatio(
-              aspectRatio: 1,
-              child: Container(
-                  decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.circular(12))
-              )
-            ),
+                aspectRatio: 1,
+                child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.pink,
+                        borderRadius: BorderRadius.circular(12)))),
             const SizedBox(width: 24),
             Expanded(
                 child: Text("item name",
