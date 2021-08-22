@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-class CatalogModel {
+class ItemColor {
+  final Color color;
+  final String name;
+  ItemColor(this.color, this.name);
 
   @override
-  String get generateRandomColor => "this will be a color";
+  String get getName => this.name;
+  @override
+  Color get getColor => this.color;
 }
 
-@immutable
-class ItemColor {
-  final int hash;
-  final String name;
+class CatalogModel {
+  static final max = 255;
 
-  ItemColor(this.hash, this.name);
+  ItemColor randomColor (int index) {
+    final red = new Random(index).nextInt(max);
+    final blue = new Random(index + red).nextInt(max);
+    final green = new Random(index + blue).nextInt(max);
+    final Color color = Color.fromARGB(max, red, blue, green);
+    final name =
+        color.toString().split(RegExp(r"(\(|\))"))[1].replaceAll("0x", "#");
+    index = index + 1;
+    return new ItemColor(color, name);
+  }
 
-  @override
-  int get colorHash => hash;
-
-  @override
-  String get colorName => name;
+  String getColorHey() {
+    return "";
+  }
 }

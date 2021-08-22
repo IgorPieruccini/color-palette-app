@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_color_pallete/model/favorite.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_color_pallete/model/catalog.dart';
 import 'package:flutter_color_pallete/screens/catalog.dart';
 import 'package:flutter_color_pallete/screens/login.dart';
-import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           Provider(create: (context) => CatalogModel()),
+          ChangeNotifierProvider(create: (context)=> FavoriteModel())
         ],
         child: MaterialApp(
             title: 'Color Pallete',
