@@ -1,9 +1,14 @@
 # Collor Pallete App
-Within this project i want to learn and understand how ephemoral and app state works in flutter along with some other basic feature like ui and router for example.
+
+The goal of this project is to explore flutter and dart language and step by step master my skills by doing cool apps.
+
+### The app
+
+The apps gives the user a infinity list of colors with the ability to add as favorite & a Favorite Page so the user can quicly look at the hearted colors and remove it.
+
+![pallete_app](https://user-images.githubusercontent.com/65550992/130844799-9faa390b-3f22-4818-9f83-72db7601d4c0.jpg)
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
