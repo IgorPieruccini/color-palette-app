@@ -7,6 +7,7 @@ import 'package:flutter_color_pallete/screens/catalog.dart';
 import 'package:flutter_color_pallete/screens/login.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
