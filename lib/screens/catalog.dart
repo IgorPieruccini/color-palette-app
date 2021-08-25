@@ -53,7 +53,6 @@ class _ColorItem extends StatelessWidget {
       favorites.isFavorite(color)
           ? favorites.remove(color)
           : favorites.add(color);
-      print(favorites.favoriteColors);
     }
 
     return Padding(

@@ -6,6 +6,25 @@ import 'package:provider/provider.dart';
 class Favorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    void onReturn() {
+      Navigator.pushReplacementNamed(context, "/catalog");
+    }
+
+    return Scaffold(
+        appBar: AppBar(
+            title: Text('Favorites'),
+            leading: TextButton(
+                child: Icon(Icons.arrow_back, color: Colors.white),
+                onPressed: onReturn)),
+        body: Consumer<FavoriteModel>(
+            builder: (context, favorites, widget) => FavoriteList()));
+  }
+}
+
+class FavoriteList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     final favorites = context.select((FavoriteModel model) => model);
     final List<Widget> favoriteList = [];
 
@@ -13,13 +32,7 @@ class Favorites extends StatelessWidget {
       favoriteList.add(FavoriteColorItem(element));
     });
 
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Favorites'),
-        ),
-        body: ListView(
-          children: favoriteList,
-        ));
+    return ListView(children: favoriteList);
   }
 }
 
@@ -29,8 +42,12 @@ class FavoriteColorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
-    void onRemoveFavorite(ItemColor color) {}
+    final favorites = context.select((FavoriteModel model) => model);
+
+    void onRemoveFavorite() {
+      favorites.remove(colorItem);
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: LimitedBox(
@@ -50,10 +67,7 @@ class FavoriteColorItem extends StatelessWidget {
             const SizedBox(width: 25),
             Consumer<FavoriteModel>(
               builder: (context, favorites, d) => TextButton(
-                  onPressed: () => onRemoveFavorite(colorItem),
-                  child: Icon(favorites.isFavorite(colorItem)
-                      ? Icons.favorite
-                      : Icons.favorite_border)),
+                  onPressed: onRemoveFavorite, child: Icon(Icons.delete)),
             ),
           ],
         ),

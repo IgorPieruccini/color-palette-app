@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_pallete/model/catalog.dart';
-
 import 'package:provider/provider.dart';
 
 class FavoriteModel extends ChangeNotifier {
