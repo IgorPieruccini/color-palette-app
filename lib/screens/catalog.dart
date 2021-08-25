@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_color_pallete/model/favorite.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_color_pallete/model/favorite.dart';
 import 'package:flutter_color_pallete/model/catalog.dart';
 
 class Catalog extends StatelessWidget {
@@ -21,11 +21,12 @@ class Catalog extends StatelessWidget {
 }
 
 class AppBar extends StatelessWidget {
-  void onPressed(BuildContext context) {
-    // change route
-  }
 
   Widget build(BuildContext context) {
+    void onPressed() {
+      Navigator.pushReplacementNamed(context, "/favorites");
+    }
+
     return SliverAppBar(
       title: Text(
         "Colors",
@@ -33,8 +34,7 @@ class AppBar extends StatelessWidget {
       ),
       floating: true,
       actions: [
-        IconButton(
-            onPressed: () => onPressed, icon: const Icon(Icons.favorite))
+        IconButton(onPressed: onPressed, icon: const Icon(Icons.favorite))
       ],
     );
   }

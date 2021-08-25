@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_pallete/model/favorite.dart';
+import 'package:flutter_color_pallete/screens/favorites.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_color_pallete/model/catalog.dart';
 import 'package:flutter_color_pallete/screens/catalog.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
             routes: {
               "/": (context) => Login(),
               "/catalog": (context) => Catalog(),
+              "/favorites": (context) => Favorites(),
             })
     );
   }
